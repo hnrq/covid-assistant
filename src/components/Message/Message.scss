@@ -1,0 +1,39 @@
+.message {
+  position: relative;
+  z-index: 1;
+  min-width: 10rem;
+  display: inline-block;
+  padding: 0.7rem 4rem 0.7rem 1rem;
+  margin-bottom: 1rem;
+  border-radius: 0.2rem;
+  &.left {
+    align-self: flex-start;
+    padding: 1.2rem;
+    padding-left: 0.8rem;
+    border-left: purple 2px solid;
+  }
+  & .timestamp {
+    position: absolute;
+    right: 0.5rem;
+    bottom: 0.2rem;
+  }
+  &.right {
+    align-self: flex-end;
+    background: #3eb6d7;
+    &:after {
+      z-index: -1;
+      content: "";
+      position: absolute;
+      right: 0;
+      top: 100%;
+      width: 0;
+      height: 0;
+      border: 15px solid transparent;
+      border-left-color: #3eb6d7;
+      border-right: 0;
+      border-bottom: 0;
+      margin-top: -15px;
+      margin-right: -12px;
+    }
+  }
+}

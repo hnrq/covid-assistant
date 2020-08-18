@@ -1,0 +1,58 @@
+@import "../../scss/mixins";
+
+.chat-container {
+  display: grid;
+  height: 100%;
+  grid-template-columns: auto;
+  grid-gap: 0;
+  align-content: stretch;
+  grid-template-rows: 1fr auto;
+
+  grid-template-areas:
+    "messages"
+    "message-form";
+
+  & .message-form {
+    padding: 0.5rem 1.5rem;
+    grid-area: message-form;
+    display: flex;
+    overflow-x: hidden;
+    justify-content: center;
+    & input {
+      color: #fafafa;
+      padding: 0.5rem;
+      margin-right: 1rem;
+      width: 70vw;
+      background: rgba(255, 255, 255, 0.05);
+      border: none;
+    }
+    & button {
+      border: none;
+      border-radius: 50%;
+      background: #3eb6d7;
+      transition: background 0.2s ease-in;
+      &:hover {
+        background: darken(#3eb6d7, 10);
+      }
+      &:focus {
+        outline: none;
+      }
+      @include box-shadow(0 2px 5px 0px rgba(0, 0, 0, 0.15));
+      width: 32px;
+      height: 32px;
+      padding: 0 0;
+      color: #fafafa;
+    }
+  }
+  & .messages {
+    grid-area: messages;
+    display: flex;
+    overflow-y: auto;
+    justify-self: center;
+    width: 100%;
+    max-width: 1020px;
+    width: 85%;
+    flex-direction: column;
+    padding: 0 2rem;
+  }
+}

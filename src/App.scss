@@ -1,0 +1,75 @@
+@import "scss/mixins";
+
+body {
+  color: #fafafa;
+}
+
+.App {
+  display: grid;
+  background: #121212;
+  height: 100vh;
+  grid-template-columns: auto;
+  grid-gap: 0.5rem;
+  align-content: stretch;
+  grid-template-rows: 4rem auto 5rem;
+  & .spinner {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  grid-template-areas:
+    "header"
+    "content"
+    "footer";
+}
+
+.header {
+  grid-area: header;
+  @include box-shadow(0 2px 5px 0px rgba(0, 0, 0, 0.15));
+  background: rgba(255, 255, 255, 0.05);
+  & h2.header-title {
+    font-weight: bold;
+  }
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 2rem;
+}
+
+.content {
+  grid-area: content;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.footer {
+  grid-area: footer;
+  @include box-shadow(0 2px 5px 0px rgba(0, 0, 0, 0.15));
+  background: rgba(255, 255, 255, 0.05);
+  display: flex;
+  & a {
+    font-weight: bold;
+    color: #3eb6d7;
+    text-decoration: none;
+    position: relative;
+    &::after {
+      content: "";
+      height: 3px;
+      display: block;
+      position: absolute;
+      left: 0;
+      width: 0;
+      transition: 0.2s ease-in;
+    }
+    &:hover {
+      &::after {
+        background: #3eb6d7;
+        width: 100%;
+      }
+    }
+  }
+  align-items: center;
+  flex-direction: row-reverse;
+  padding: 0.5rem 2rem;
+}
